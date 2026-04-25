@@ -22,9 +22,15 @@ Evaluate whether calcium (Ca) can predict uranium (U) concentrations in regional
 
 ### Risk map arsenic and uranium
 
-Elevated arsenic (As) and uranium (U) concentrations are spatially clustered rather than uniformly distributed.  
-Priority 1 (red) highlights locations where both elements are high, while Priority 2 (orange) indicates areas where one is elevated.  
-These clusters represent potential zones for further investigation.
+Arsenic (As) and uranium (U) concentrations were classified using quantile thresholds.  
+Low, medium, and high risk levels were defined using the 75th and 95th percentiles, while hotspots correspond to the top 5% of values.
+
+Priority classes were then derived:
+- **Priority 1**: both As and U in the top 5%  
+- **Priority 2**: either As or U in the top 5%  
+- **Background**: remaining samples
+
+This approach provides a relative screening of elevated geochemical concentrations across the dataset.
 ![U predict based on Ca](results/sweden_as_u_priority_map.png)  
 
 - Data show strong clustering and non-linear structure  
