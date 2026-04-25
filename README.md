@@ -26,11 +26,11 @@ Evaluate whether calcium (Ca) can predict uranium (U) concentrations in regional
   - k = 70 → oversmoothed trend  
 - Overall weak predictive relationship between Ca and U
 
- ![U predict based on Ca](u_ca_pred_k1_70.png)  
+ ![U predict based on Ca](results/u_ca_pred_k1_70.png)  
 
  if use k = 1 only 
 
- ![U predict based on Ca](u_ca_pred-K1.png) 
+ ![U predict based on Ca](results/u_ca_pred-K1.png) 
 
 ## Interpretation
 - Ca alone is insufficient to explain U variability  
