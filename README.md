@@ -12,6 +12,9 @@ Evaluate whether calcium (Ca) can predict uranium (U) concentrations in regional
   - Target: U (ppm)
 - Log10 transformation applied to reduce skewness
 
+The center point has coordinate: (341104 6426662)
+the gobal center: POINT (614077.8484115675 6944984.369432318)
+
 ## Method
 - Model: k-Nearest Neighbors (kNN) regression  
 - Train/test split: 60/40 (random_state=42)  
