@@ -36,6 +36,13 @@ Priority classes were then derived:
 This approach provides a relative screening of elevated geochemical concentrations across the dataset.
 ![U predict based on Ca](results/sweden_as_u_priority_map.png)  
 
+arsenic risk map 
+![U predict based on Ca](results/arsenic_screening_map.png) 
+
+arsenic risk map 
+![U predict based on Ca](results/uranium_screening_map.png) 
+
+
 - Data show strong clustering and non-linear structure  
 - kNN behavior:
   - k = 1 → high variance (overfitting)  
