@@ -1,0 +1,11 @@
+# Project-specific files
+README_Ma_ma.md
+markgeokemi_regional.gpkg
+markgeokemi_regional.lyrx
+markgeokemi_regional.qlr
+df_clean.gpkg
+
+# Folders
+anaconda_projects/
+.virtual_documents/
+.ipynb_checkpoints/
