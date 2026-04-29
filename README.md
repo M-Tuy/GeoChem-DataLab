@@ -11,28 +11,6 @@ Syftet är inte att genomföra en fullständig riskbedömning, utan att ta fram 
 
 De preliminära resultaten visar att de högsta 5 procenten motsvarar cirka **13,00 ppm As** och **4,60 ppm U** i det analyserade datasetet. Baserat på dessa trösklar identifierades **145 provpunkter som Prioritet 1**, där både As och U tillhör de högsta 5 procenten, samt **2 564 provpunkter som Prioritet 2**, där antingen As eller U tillhör de högsta 5 procenten.
 
-## Data
-- Source: SGU regional geochemistry dataset
-  
-
-Arsenic (As) and uranium (U) concentrations were classified using quantile thresholds.  
-Low, medium, and high risk levels were defined using the 75th and 95th percentiles, while hotspots correspond to the top 5% of values.
-
-**Uranium and arsenic combined**
-Priority classes were then derived:
-- **Priority 1**: both As and U in the top 5%  
-- **Priority 2**: either As or U in the top 5%  
-- **Background**: remaining samples
-
-This approach provides a relative screening of elevated geochemical concentrations across the dataset.
-![U predict based on Ca](results/sweden_as_u_priority_map.png)  
-
-**Arsenic**
-![U predict based on Ca](results/arsenic_screening_map.png) 
-
-**Uranium** 
-![U predict based on Ca](results/uranium_screening_map.png) 
-
 ## 1. Bakgrund
 
 Arsenik och uran förekommer naturligt i berggrund och jordarter, men förhöjda halter kan vara miljömässigt relevanta beroende på halt, medium, markanvändning, mobilitet och exponeringsvägar. I tidiga skeden av miljöutredningar behövs ofta enkla metoder för att tolka stora geokemiska dataset och identifiera områden där vidare undersökning kan vara motiverad.
@@ -130,7 +108,8 @@ En kombinerad prioriteringsklass togs fram genom att överlagra hotspot-resultat
 
 Den beräknade 95:e percentilen för arsenik är cirka **13,00 ppm**. Provpunkter över denna nivå motsvarar de högsta 5 procenten av As-halterna i datasetet.
 
-![Arsenic screening map](as_u_screening_report_assets/arsenic_screening_map.png)
+**Arsenic**
+![U predict](results/arsenic_screening_map.png) 
 
 **Figur 1.** Relativ screening av arsenik. Röda punkter visar provpunkter i de högsta 5 procenten av As-halterna.
 
@@ -138,7 +117,8 @@ Den beräknade 95:e percentilen för arsenik är cirka **13,00 ppm**. Provpunkte
 
 Den beräknade 95:e percentilen för uran är cirka **4,60 ppm**. Provpunkter över denna nivå motsvarar de högsta 5 procenten av U-halterna i datasetet.
 
-![Uranium screening map](as_u_screening_report_assets/uranium_screening_map.png)
+**Uranium** 
+![U predict](results/uranium_screening_map.png) 
 
 **Figur 2.** Relativ screening av uran. Blå punkter visar provpunkter i de högsta 5 procenten av U-halterna.
 
@@ -150,7 +130,7 @@ Den kombinerade prioriteringen visar:
 - **Prioritet 2:** 2 564 provpunkter där antingen As eller U tillhör de högsta 5 procenten.
 - **Bakgrund:** övriga provpunkter.
 
-![Combined As and U priority map](as_u_screening_report_assets/sweden_as_u_priority_map.png)
+![U and As comb. predict](results/sweden_as_u_priority_map.png)  
 
 **Figur 3.** Kombinerad screening av As och U. Prioritet 1 visar samförekomst av relativt höga As- och U-halter. Prioritet 2 visar provpunkter där en av parametrarna tillhör de högsta 5 procenten.
 
