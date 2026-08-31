@@ -52,19 +52,18 @@ This run's computed thresholds:
 As hotspots (top 5%, red) among all cleaned sample points.
 
 **Arsenic**
-![Arsenic Screening Map](C:/Projects/GeoChem-DataLab/results/arsenic_screening_map.png)
 
-![Arsenic Screening Map](C:/Projects/GeoChem-DataLab/results/arsenic_screening_map.png)
+![Arsenic Screening Map](results/arsenic_screening_map.png)
 
 **Figure 2 — Uranium screening**
 U hotspots (top 5%, blue) among all cleaned sample points.
 
-![Uranium Screening Map](C:/Projects/GeoChem-DataLab/results/uranium_screening_map.png)
+![Uranium Screening Map](results/uranium_screening_map.png)
 
 **Figure 3 — Combined As + U priority**
 Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 
-![Combined Priority Map](C:/Projects/GeoChem-DataLab/results/sweden_as_u_priority_map.png)
+![Combined Priority Map](results/sweden_as_u_priority_map.png)
 
 **Point counts per class:**
 
