@@ -1,5 +1,5 @@
 
-# GeoScreen SE — Arsenic & Uranium Geochemical Screening
+# GeoScreen SE- ***Arsenic & Uranium Geochemical Screening***
 
 **Author:** Marius Tuyishime
 **Status:** Pågående, preliminära resultat
@@ -7,7 +7,7 @@
 
 ---
 
-## 1. Background / Purpose
+## 1. Background
 
 Arsenic (As) and uranium (U) occur naturally in bedrock and soils, but elevated concentrations can be environmentally relevant depending on concentration, medium, land use, mobility, and exposure pathways. In early stages of environmental investigations, simple methods are often needed to interpret large geochemical datasets and identify areas where further investigation may be warranted.
 
@@ -112,3 +112,29 @@ To move this analysis from geochemical screening toward more risk-informed prior
 6. **Distribution-aware thresholds** — consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical concentration data.
 7. **Transparent uncertainty reporting** — document data coverage, analytical method, sample medium, spatial resolution, and limitations clearly in any future version.
 
+
+
+## 7. Way Forward: Toward a Machine Learning-Based Model
+
+The current version of GeoScreen SE is intentionally simple: a transparent, percentile-based screening method that anyone can follow and reproduce without a statistical background. This is a deliberate first step, not a final product.
+
+As the project matures, the plan is to expand both the **data** and the **modeling approach**:
+
+**More data:**
+- Incorporate additional SGU layers already present in the delivery (e.g. `moran_2mm_hno3_icpms`, sediment and surface soil tables) to compare As/U behavior across sample media.
+- Bring in supporting geochemical variables beyond Fe/Ca/Al already flagged in Section 6 — for example pH, S, and rare earth elements — which may help explain *why* certain points are hotspots, not just *that* they are.
+- Add external layers such as bedrock geology, land use, or proximity to drinking water sources, to move from pure geochemistry toward exposure-relevant context.
+
+**Toward machine learning:**
+During development, early experiments were done with **k-nearest neighbors (KNN) regression**, testing whether Ca concentration could help predict U concentration at unsampled points. Two versions were tried:
+- A manual "by hand" KNN implementation (k=1), to understand the mechanics of nearest-neighbor prediction.
+- A `scikit-learn`-based KNN regression sweeping k from 1 to 70, to observe the classic bias-variance tradeoff (low k = overfit/noisy, high k = oversmoothed).
+
+These experiments were **exploratory and kept separate from the current screening pipeline** — they answer a different question (can one variable predict another?) than the percentile method (which points are relatively elevated?). They are, however, a useful proof of concept for where this project is heading:
+
+- **Spatial interpolation** (e.g. kriging, IDW, or KNN-based prediction) to move from discrete sample points toward continuous surfaces — directly addressing the "points vs. areas" limitation noted by early reviewers of this report.
+- **Regression/classification models** using Fe, Ca, Al, pH, and other geochemical variables as predictors, to model *mobility and likely bioavailability* rather than relying on raw concentration alone.
+- **Train/test validation** (as already practiced in the KNN experiments) to properly evaluate any future predictive model, rather than relying solely on descriptive percentile statistics.
+- Eventually, a **risk-informed prioritization model** that combines geochemical prediction, land use, and exposure pathways — the natural endpoint hinted at in Section 6.
+
+The percentile screening method in this report remains the **baseline and reference point**: any future ML-based model should be validated against it, and should improve on — not obscure — its transparency and reproducibility.
