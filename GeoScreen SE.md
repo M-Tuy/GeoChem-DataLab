@@ -51,6 +51,9 @@ This run's computed thresholds:
 **Figure 1 — Arsenic screening**
 As hotspots (top 5%, red) among all cleaned sample points.
 
+**Arsenic**
+![Arsenic Screening Map](C:/Projects/GeoChem-DataLab/results/arsenic_screening_map.png)
+
 ![Arsenic Screening Map](C:/Projects/GeoChem-DataLab/results/arsenic_screening_map.png)
 
 **Figure 2 — Uranium screening**
