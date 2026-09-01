@@ -1,4 +1,5 @@
-# GeoScreen SE- ***Arsenic & Uranium Geochemical Screening***
+# GeoScreen SE
+## ***Arsenic & Uranium Geochemical Screening***
 
 **Author:** Marius Tuyishime
 **Status:** Pågående, preliminära resultat
