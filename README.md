@@ -1,5 +1,4 @@
-# GeoScreen SE
-### *Arsenic & Uranium Geochemical Screening*
+# GeoScreen SE: Arsenic & Uranium Geochemical Screening
 
 **Author:** Marius Tuyishime
 **Status:** Pågående, preliminära resultat
@@ -65,12 +64,12 @@ U hotspots (top 5%, blue) among all cleaned sample points.
 
 ![Uranium Screening Map](results/uranium_screening_map.png)
 
-**Figure 3 — Combined As + U priority**
+**Figure 3: Combined As + U priority**
 Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 
 ![Combined Priority Map](results/sweden_as_u_priority_map.png)
 
-**Figure 4 — Arsenic vs. Naturvårdsverket guideline values (KM/MKM)**
+**Figure 4: Arsenic vs. Naturvårdsverket guideline values (KM/MKM)**
 Points classified against Sweden's legal contaminated-land guideline values rather than relative percentiles.
 
 ![Arsenic Guideline Screening Map](results/arsenic_guideline_screening_map.png)
@@ -103,7 +102,7 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 **Priority 2** points indicate that only one of the two elements is relatively elevated. These should not automatically be treated as risk areas but can support further prioritization depending on local context.
 
-**Comparison against regulatory guideline values:** notably, 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic — more than the 5% that the relative "top 5%" screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). This shows that more of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone would indicate — an important finding when moving from relative screening toward regulatory-relevant assessment.
+**Comparison against regulatory guideline values:** notably, 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic, more than the 5% that the relative "top 5%" screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). This shows that more of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone would indicate — an important finding when moving from relative screening toward regulatory-relevant assessment.
 
 **Important:** this is a **screening tool, not a risk map**. It does not incorporate regulatory guideline values, bioavailability, land use, or exposure pathways.
 
@@ -116,7 +115,7 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 - No equivalent Naturvårdsverket generic guideline value was identified for uranium in soil; Swedish uranium regulation tends to focus on drinking water and radiological guidance rather than a general soil contamination limit.
 - Local land use, exposure pathways, and receptor information are not included in this version.
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the prioritization model.
-- The `> 0` filter excludes both "not analyzed" placeholders (0) and below-detection-limit values (stored as negative numbers) — slightly narrowing the effective dataset compared to a method that treats below-detection values as left-censored data.
+- The `> 0` filter excludes both "not analyzed" placeholders (0) and below-detection-limit values (stored as negative numbers), slightly narrowing the effective dataset compared to a method that treats below-detection values as left-censored data.
 - Results should be supplemented with site- and medium-specific information before being used for risk assessment.
 
 ---
@@ -125,13 +124,13 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 To move this analysis from geochemical screening toward more risk-informed prioritization:
 
-1. **Compare against relevant guideline values** — done for arsenic in this version (Figure 4); still needed for uranium via an alternative regulatory framework (e.g. drinking water or radiological guidance).
-2. **Add land use or receptor information** — a simple exposure proxy such as residential areas, agricultural land, drinking water interests, or proximity to private wells.
+1. **Compare against relevant guideline values**: done for arsenic in this version (Figure 4); still needed for uranium via an alternative regulatory framework (e.g. drinking water or radiological guidance).
+2. **Add land use or receptor information**: a simple exposure proxy such as residential areas, agricultural land, drinking water interests, or proximity to private wells.
 3. **Medium-specific analysis** — keep soil/till, sediment, surface water, and groundwater separate, since risk logic differs by medium.
-4. **Geochemical mobility** — use support variables (Fe, Al, Ca, pH) to interpret binding, mobility, and potential transport.
-5. **Regional background variation** — test county/regional percentile thresholds instead of a single national threshold, to account for naturally elevated geological background in some areas.
-6. **Distribution-aware thresholds** — consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical concentration data.
-7. **Transparent uncertainty reporting** — document data coverage, analytical method, sample medium, spatial resolution, and limitations clearly in any future version.
+4. **Geochemical mobility**: use support variables (Fe, Al, Ca, pH) to interpret binding, mobility, and potential transport.
+5. **Regional background variation**: test county/regional percentile thresholds instead of a single national threshold, to account for naturally elevated geological background in some areas.
+6. **Distribution-aware thresholds**: consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical concentration data.
+7. **Transparent uncertainty reporting**: document data coverage, analytical method, sample medium, spatial resolution, and limitations clearly in any future version.
 
 
 
@@ -143,7 +142,7 @@ As the project matures, the plan is to expand both the **data** and the **modeli
 
 **More data:**
 - Incorporate additional SGU layers already present in the delivery (e.g. `moran_2mm_hno3_icpms`, sediment and surface soil tables) to compare As/U behavior across sample media.
-- Bring in supporting geochemical variables beyond Fe/Ca/Al already flagged in Section 6 — for example pH, S, and rare earth elements — which may help explain *why* certain points are hotspots, not just *that* they are.
+- Bring in supporting geochemical variables beyond Fe/Ca/Al already flagged in Section 6 — for example pH, S, and rare earth elements, which may help explain why certain points are hotspots, not just *that* they are.
 - Add external layers such as bedrock geology, land use, or proximity to drinking water sources, to move from pure geochemistry toward exposure-relevant context.
 
 **Toward machine learning:**
