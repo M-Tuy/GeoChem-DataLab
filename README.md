@@ -29,20 +29,20 @@ Later stages of the project will narrow the scope to a smaller geographical regi
 **Cleaning steps:**
 1. Dropped rows missing sample ID, coordinates, or geometry.
 2. Confirmed CRS as EPSG:3006.
-3. Filtered to rows with valid (non-missing), positive values for As, Fe, Ca, Al, and U — excluding SGU's "0 = not analyzed" placeholder and below-detection-limit values (stored as negative numbers).
+3. Filtered to rows with valid (non-missing), positive values for As, Fe, Ca, Al, and U, excluding SGU's "0 = not analyzed" placeholder and below-detection-limit values (stored as negative numbers, per SGU documentation).
 
-**Result:** 27,981 analysis-ready sample points (report's original run: ~28,470; the small difference reflects a marginally stricter positive-value filter in this run).
+**Output from cleaning:** 27 981 analysis-ready sample points (original Swedish report: 28471 points).
 
 **Percentile-based thresholds:**
 - 75th percentile → "elevated" level
 - 95th percentile → "high" level / hotspot category
 
-This run's computed thresholds:
+Thecomputed thresholds, concentration in ppm :
 
 | Element | 75th percentile | 95th percentile |
 |---|---|---|
-| As | 3.90 ppm | 13.00 ppm |
-| U | 2.40 ppm | 4.60 ppm |
+| As | 3.90 | 13.00 |
+| U | 2.40 | 4.60 |
 
 **Combined prioritization:** Priority 1 = both As and U in top 5%; Priority 2 = either As or U in top 5%; Background = neither.
 
@@ -50,14 +50,14 @@ This run's computed thresholds:
 
 ## 3. Results
 
-**Figure 1 — Arsenic screening**
+**Figure 1: Arsenic screening**
 As hotspots (top 5%, red) among all cleaned sample points.
 
 **Arsenic**
 
 ![Arsenic Screening Map](results/arsenic_screening_map.png)
 
-**Figure 2 — Uranium screening**
+**Figure 2: Uranium screening**
 U hotspots (top 5%, blue) among all cleaned sample points.
 
 ![Uranium Screening Map](results/uranium_screening_map.png)
