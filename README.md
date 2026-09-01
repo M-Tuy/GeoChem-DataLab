@@ -108,83 +108,83 @@ Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set,
 | Above MKM (>25 ppm) | 367 | 1.31% |
 
 ---
-
 ## 4. Interpretation
 
-Results show clear geographic patterns in the highest As and U concentrations, with visible clustering in northern Sweden and parts of central Sweden. Because the method relies on relative percentiles, it identifies points that are high **relative to this dataset**, not necessarily points exceeding regulatory guideline values.
+Results show clear geographic patterns in the highest As and U concentrations. Clustering is visible in northern Sweden and parts of central Sweden. The method relies on relative percentiles. It identifies points that are high relative to this dataset, not necessarily points that exceed regulatory guideline values.
 
-**Priority 1** points are the most notable, since they show co-occurrence of relatively high As and U at the same location — a stronger signal than either element alone. These areas may be worth further investigation, particularly where they coincide with sensitive land use, drinking water interests, or hydrogeological conditions affecting mobility and exposure.
+Priority 1 points are the most notable. They show co-occurrence of relatively high As and U at the same location, a stronger signal than either element alone. These areas may warrant further investigation, particularly where they coincide with sensitive land use, drinking water interests, or hydrogeological conditions affecting mobility and exposure.
 
-**Priority 2** points indicate that only one of the two elements is relatively elevated. These should not automatically be treated as risk areas but can support further prioritization depending on local context.
+Priority 2 points indicate that only one element is relatively elevated. These should not automatically be treated as risk areas, but can support further prioritization depending on local context.
 
-**Comparison against regulatory guideline values:** notably, 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic, more than the 5% that the relative "top 5%" screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). This shows that more of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone would indicate — an important finding when moving from relative screening toward regulatory-relevant assessment.
+**Comparison against regulatory guideline values:** 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic. This is more than the 5% the relative screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). More of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone indicates. This matters when moving from relative screening toward regulatory-relevant assessment.
 
-**Alum shale overlay (Figure 5):** Adding the alum shale bedrock layer highlights a spatial association between geology and the priority screening results. The densest Priority 1 clusters, particularly in northern Sweden and parts of central Sweden, sit directly along or immediately adjacent to mapped alum shale polygons. This is consistent with known Swedish geology: alum shale is an organic-rich black shale historically associated with elevated uranium and sulfide-hosted trace metals, including arsenic, so till derived from or transported across these formations would be expected to carry elevated As and U signatures (Armands, 1972; Andersson et al., 1985; Falk et al., 2006; Lecomte et al., 2017). The red/orange points do not sit only directly on the shale outcrops but form a broader halo around them, a pattern consistent with glacial till transport smearing geochemically anomalous material some distance from its bedrock source. Not all Priority 1 clusters are explained by the mapped alum shale — for example, the southern clusters (Skåne, Gotland) show limited nearby alum shale in this dataset, suggesting a different or additional source (a different lithology, an alum shale occurrence not captured at this data resolution, or a non-geological contribution) may be responsible there and would benefit from further investigation. This overlay is presented as a visual, exploratory observation; it has not yet been tested with a quantitative spatial statistic (e.g. distance-based buffer analysis of Priority 1/2 points relative to alum shale polygons), which is noted as a possible next step.
+**Alum shale overlay (Figure 5):** Adding the alum shale bedrock layer shows a spatial association between geology and the priority screening results. The densest Priority 1 clusters, in northern Sweden and parts of central Sweden, sit along or near mapped alum shale polygons. This fits known Swedish geology: alum shale is an organic-rich black shale associated with elevated uranium and sulfide-hosted trace metals, including arsenic (Falk et al., 2006; Lecomte et al., 2017). Till derived from or transported across these formations would be expected to carry elevated As and U signatures. The priority points form a halo around the shale rather than sitting only on the outcrops, consistent with glacial till transport spreading anomalous material from its bedrock source.
 
-**Important:** this is a **screening tool, not a risk map**. It does not incorporate regulatory guideline values, bioavailability, land use, or exposure pathways.
+Not all Priority 1 clusters relate to mapped alum shale. The southern clusters (Skåne, Gotland) show little nearby shale in this dataset. A different source is likely there, possibly a different lithology, an unmapped shale occurrence, or a non-geological input. This warrants further investigation.
+
+The overlay is a visual, exploratory observation. It has not been tested with a quantitative spatial statistic, noted as a next step below.
+
+**Important:** this is a screening tool, not a risk map. It does not incorporate regulatory guideline values, bioavailability, land use, or exposure pathways.
 
 ---
 
 ## 5. Limitations
 
 - Classification is based on total/leachable concentrations, not bioavailability or chemical speciation.
-- Relative percentiles show anomalies **within this dataset**, not regulatory exceedances.
-- No equivalent Naturvårdsverket generic guideline value was identified for uranium in soil; Swedish uranium regulation tends to focus on drinking water and radiological guidance rather than a general soil contamination limit.
+- Relative percentiles show anomalies within this dataset, not regulatory exceedances.
+- No Naturvårdsverket generic guideline value exists for uranium in soil. Swedish uranium regulation focuses on drinking water and radiological guidance rather than a general soil contamination limit.
 - Local land use, exposure pathways, and receptor information are not included in this version.
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the prioritization model.
-- The `> 0` filter excludes both "not analyzed" placeholders (0) and below-detection-limit values (stored as negative numbers), slightly narrowing the effective dataset compared to a method that treats below-detection values as left-censored data.
-- Results should be supplemented with site- and medium-specific information before being used for risk assessment.
-- The alum shale overlay (Figure 5) is a visual association only; it has not been tested statistically and does not account for glacial transport distance, ice-flow direction, or alum shale occurrences that may be missing from or under-represented at this data resolution.
+- The `> 0` filter excludes "not analyzed" placeholders (0) and below-detection-limit values (negative numbers), slightly narrowing the dataset compared to a method treating below-detection values as left-censored data.
+- Results should be supplemented with site- and medium-specific information before use in risk assessment.
+- The alum shale overlay (Figure 5) shows a visual association only. It has not been tested statistically and does not account for glacial transport distance, ice-flow direction, or shale occurrences missing from this dataset.
 
 ---
 
 ## 6. Next Steps
 
-To move this analysis from geochemical screening toward more risk-informed prioritization:
+To move this analysis from geochemical screening toward risk-informed prioritization:
 
-1. **Compare against relevant guideline values**: done for arsenic in this version (Figure 4); still needed for uranium via an alternative regulatory framework (e.g. drinking water or radiological guidance).
-2. **Add land use or receptor information**: a simple exposure proxy such as residential areas, agricultural land, drinking water interests, or proximity to private wells.
-3. **Medium-specific analysis** — keep soil/till, sediment, surface water, and groundwater separate, since risk logic differs by medium.
-4. **Geochemical mobility**: use support variables (Fe, Al, Ca, pH) to interpret binding, mobility, and potential transport.
-5. **Regional background variation**: test county/regional percentile thresholds instead of a single national threshold, to account for naturally elevated geological background in some areas.
-6. **Distribution-aware thresholds**: consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical concentration data.
-7. **Transparent uncertainty reporting**: document data coverage, analytical method, sample medium, spatial resolution, and limitations clearly in any future version.
-8. **Quantify the alum shale association**: run a distance-based spatial join (e.g. buffer alum shale polygons and compute nearest-distance for each Priority 1/2 point) to test whether the visual clustering seen in Figure 5 is statistically stronger than expected by chance, and to account for glacial ice-flow direction where available.
+1. **Compare against relevant guideline values**: done for arsenic (Figure 4); still needed for uranium via drinking water or radiological guidance.
+2. **Add land use or receptor information**: residential areas, agricultural land, drinking water interests, or proximity to private wells.
+3. **Medium-specific analysis**: keep soil/till, sediment, surface water, and groundwater separate, since risk logic differs by medium.
+4. **Geochemical mobility**: use Fe, Al, Ca, pH to interpret binding, mobility, and potential transport.
+5. **Regional background variation**: test county-level thresholds instead of a single national threshold, to account for naturally elevated geological background in some areas.
+6. **Distribution-aware thresholds**: consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical data.
+7. **Transparent uncertainty reporting**: document data coverage, analytical method, sample medium, spatial resolution, and limitations in future versions.
+8. **Quantify the alum shale association**: run a distance-based spatial join, buffering shale polygons and computing nearest-distance for each priority point, to test whether the clustering in Figure 5 is stronger than expected by chance.
+
+---
 
 ## 7. Way Forward: Toward a Machine Learning-Based Model
 
-The current version of GeoScreen SE is intentionally simple: a transparent, percentile-based screening method that anyone can follow and reproduce without a statistical background. This is a deliberate first step, not a final product.
+The current version of GeoScreen SE is intentionally simple. It is a transparent, percentile-based screening method that anyone can follow and reproduce without a statistical background. This is a deliberate first step, not a final product.
 
-As the project matures, the plan is to expand both the **data** and the **modeling approach**:
+As the project matures, the plan is to expand both the data and the modeling approach.
 
 **More data:**
-- Incorporate additional SGU layers already present in the delivery (e.g. `moran_2mm_hno3_icpms`, sediment and surface soil tables) to compare As/U behavior across sample media.
-- Bring in supporting geochemical variables beyond Fe/Ca/Al already flagged in Section 6 — for example pH, S, and rare earth elements, which may help explain why certain points are hotspots, not just *that* they are.
+- Incorporate additional SGU layers already in the delivery (e.g. `moran_2mm_hno3_icpms`, sediment and surface soil tables) to compare As/U behavior across sample media.
+- Add supporting geochemical variables beyond Fe/Ca/Al, such as pH, S, and rare earth elements, to help explain why certain points are hotspots, not just that they are.
 - Add external layers such as bedrock geology, land use, or proximity to drinking water sources, to move from pure geochemistry toward exposure-relevant context.
 
 **Toward machine learning:**
-During development, early experiments were done with **k-nearest neighbors (KNN) regression**, testing whether Ca concentration could help predict U concentration at unsampled points. Two versions were tried:
-- A manual "by hand" KNN implementation (k=1), to understand the mechanics of nearest-neighbor prediction.
-- A `scikit-learn`, based KNN regression sweeping k from 1 to 70, to observe the classic bias-variance tradeoff (low k = overfit/noisy, high k = oversmoothed).
+Early experiments used k-nearest neighbors (KNN) regression to test whether Ca concentration could help predict U concentration at unsampled points. Two versions were tried: a manual "by hand" implementation (k=1) to understand the mechanics of nearest-neighbor prediction, and a `scikit-learn` version sweeping k from 1 to 70 to observe the bias-variance tradeoff.
 
-These experiments were **exploratory and kept separate from the current screening pipeline**, they answer a different question (can one variable predict another?) than the percentile method (which points are relatively elevated?). They are, however, a useful proof of concept for where this project is heading:
+These experiments were exploratory and kept separate from the current screening pipeline. They answer a different question, whether one variable can predict another, than the percentile method, which asks which points are relatively elevated. They are a useful proof of concept for where this project is heading:
 
-- **Spatial interpolation** (e.g. kriging, IDW, or KNN-based prediction) to move from discrete sample points toward continuous surfaces, directly addressing the "points vs. areas" limitation noted by early reviewers of this report.
-- **Regression/classification models** using Fe, Ca, Al, pH, and other geochemical variables as predictors, to model *mobility and likely bioavailability* rather than relying on raw concentration alone.
-- **Train/test validation** (as already practiced in the KNN experiments) to properly evaluate any future predictive model, rather than relying solely on descriptive percentile statistics.
-- Eventually, a **risk-informed prioritization model** that combines geochemical prediction, land use, and exposure pathways — the natural endpoint hinted at in Section 6.
+- **Spatial interpolation** (kriging, IDW, or KNN-based prediction) to move from discrete points toward continuous surfaces.
+- **Regression/classification models** using Fe, Ca, Al, and pH as predictors, to model mobility and likely bioavailability rather than relying on raw concentration alone.
+- **Train/test validation**, as already practiced in the KNN experiments, to properly evaluate future predictive models.
+- Eventually, a **risk-informed prioritization model** combining geochemical prediction, land use, and exposure pathways.
 
-The percentile screening method in this report remains the **baseline and reference point**: any future ML-based model should be validated against it, and should improve on, not obscure, its transparency and reproducibility.
+The percentile screening method in this report remains the baseline and reference point. Any future ML-based model should be validated against it, and should improve on, not obscure, its transparency and reproducibility.
 
 ---
 
 ## 8. References
 
 - Andersson, A., Dahlman, B., Gee, D.G., Snäll, S. (1985). *The Scandinavian Alum Shales.* Sveriges Geologiska Undersökning, Ca 56.
-- Armands, G. (1972). *Geochemical studies of uranium, molybdenum and vanadium in a Swedish alum shale.* Stockholm Contributions in Geology, 27.
 - Falk, H., Lavergren, U., Bergbäck, B. (2006). Metal mobility in alum shale from Öland, Sweden. *Journal of Geochemical Exploration*, 90(3), 157–165.
-- Lecomte, A., Cathelineau, M., Michels, R., Peiffert, C., Brouand, M. (2017). Uranium mineralization in the Alum Shale Formation (Sweden): Evolution of a U-rich marine black shale from sedimentation to metamorphism. *Ore Geology Reviews*, 88, 71–98.
-- Naturvårdsverket. *Riktvärden för förorenad mark, Rapport 5976.* [https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/](https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/)
-- SGU (Sveriges geologiska undersökning). *Markgeokemi, regional provtagning.* [https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/)
-- SGU (Sveriges geologiska undersökning). *Berggrund 1:50 000–1:250 000.* [https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/](https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/)
-- SGU. *Uran, Bedömningsgrunder för grundvatten.* [https://www.sgu.se/anvandarstod-for-geologiska-fragor/bedomningsgrunder-for-grundvatten/grundvattnets-kvalitet--oorganiska-amnen/uran/](https://www.sgu.se/anvandarstod-for-geologiska-fragor/bedomningsgrunder-for-grundvatten/grundvattnets-kvalitet--oorganiska-amnen/uran/)
+- Lecomte, A., Cathelineau, M., Michels, R., Peiffert, C., Brouand, M. (2017). Uranium mineralization in the Alum Shale Formation (Sweden). *Ore Geology Reviews*, 88, 71–98.
+- Naturvårdsverket. *Riktvärden för förorenad mark, Rapport 5976.* https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/
+- SGU (Sveriges geologiska undersökning). *Markgeokemi, regional provtagning.* https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/
