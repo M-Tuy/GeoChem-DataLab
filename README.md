@@ -48,6 +48,11 @@ Thecomputed thresholds, concentration in ppm :
 
 **Regulatory guideline values (Naturvårdsverket):** for arsenic, generic guideline values for contaminated land are 10 mg/kg TS (KM, for sensitive land use, e.g. homes/schools/gardens) and 25 mg/kg TS (MKM for less sensitive land use, e.g. offices/industry). Notably, the KM value corresponds to the 90th percentile of SGU's regional measurements. The arsenic dataset 95th percentile (13.00 ppm) sits between KM and MKM.
 
+**Supplementary geological layer — alum shale (Alunskiffer):**
+- Product: [Berggrund 1:50 000–1:250 000](https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/) (SGU bedrock geology)
+- Direct bulk download (GeoPackage, CC0 license): [berggrund50k-250k.zip](https://resource.sgu.se/data/oppnadata/berggrund50k-250k/berggrund50k-250k.zip)
+- Alum shale polygons (n = 123) were extracted from this bedrock layer and reprojected to EPSG:3006 to match the sample data, then overlaid on the Priority 1/Priority 2 screening results as a geological context layer (see Figure 5).
+
 ---
 
 ## 3. Results
@@ -73,6 +78,11 @@ Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 Points classified against Sweden's legal contaminated-land guideline values rather than relative percentiles.
 
 ![Arsenic Guideline Screening Map](results/arsenic_guideline_screening_map.png)
+
+**Figure 5: Combined As + U priority with alum shale (Alunskiffer) overlay**
+Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set, together with mapped alum shale bedrock polygons (black, n=123) from SGU's national bedrock geology dataset.
+
+![Alum Shale Priority Overlay](results/alum_shale_priority_overlay.png)
 
 **Point counts per class (relative percentile screening, n=27,981):**
 
@@ -104,6 +114,8 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 **Comparison against regulatory guideline values:** notably, 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic, more than the 5% that the relative "top 5%" screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). This shows that more of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone would indicate — an important finding when moving from relative screening toward regulatory-relevant assessment.
 
+**Alum shale overlay (Figure 5):** Adding the alum shale bedrock layer highlights a spatial association between geology and the priority screening results. The densest Priority 1 clusters — particularly in northern Sweden (Västerbotten/Norrbotten) and parts of central Sweden (around Närke/Östergötland) — sit directly along or immediately adjacent to mapped alum shale polygons. This is consistent with known Swedish geology: alum shale is an organic-rich black shale historically associated with elevated uranium and sulfide-hosted trace metals, including arsenic, so till derived from or transported across these formations would be expected to carry elevated As and U signatures. The red/orange points do not sit only directly on the shale outcrops but form a broader halo around them, a pattern consistent with glacial till transport smearing geochemically anomalous material some distance from its bedrock source. Not all Priority 1 clusters are explained by the mapped alum shale — for example, the southern clusters (Skåne, Gotland) show limited nearby alum shale in this dataset, suggesting a different or additional source (a different lithology, an alum shale occurrence not captured at this data resolution, or a non-geological contribution) may be responsible there and would benefit from further investigation. This overlay is presented as a visual, exploratory observation; it has not yet been tested with a quantitative spatial statistic (e.g. distance-based buffer analysis of Priority 1/2 points relative to alum shale polygons), which is noted as a possible next step.
+
 **Important:** this is a **screening tool, not a risk map**. It does not incorporate regulatory guideline values, bioavailability, land use, or exposure pathways.
 
 ---
@@ -117,6 +129,7 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the prioritization model.
 - The `> 0` filter excludes both "not analyzed" placeholders (0) and below-detection-limit values (stored as negative numbers), slightly narrowing the effective dataset compared to a method that treats below-detection values as left-censored data.
 - Results should be supplemented with site- and medium-specific information before being used for risk assessment.
+- The alum shale overlay (Figure 5) is a visual association only; it has not been tested statistically and does not account for glacial transport distance, ice-flow direction, or alum shale occurrences that may be missing from or under-represented at this data resolution.
 
 ---
 
@@ -131,8 +144,7 @@ To move this analysis from geochemical screening toward more risk-informed prior
 5. **Regional background variation**: test county/regional percentile thresholds instead of a single national threshold, to account for naturally elevated geological background in some areas.
 6. **Distribution-aware thresholds**: consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical concentration data.
 7. **Transparent uncertainty reporting**: document data coverage, analytical method, sample medium, spatial resolution, and limitations clearly in any future version.
-
-
+8. **Quantify the alum shale association**: run a distance-based spatial join (e.g. buffer alum shale polygons and compute nearest-distance for each Priority 1/2 point) to test whether the visual clustering seen in Figure 5 is statistically stronger than expected by chance, and to account for glacial ice-flow direction where available.
 
 ## 7. Way Forward: Toward a Machine Learning-Based Model
 
