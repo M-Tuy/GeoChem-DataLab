@@ -1,4 +1,3 @@
-
 # GeoScreen SE- ***Arsenic & Uranium Geochemical Screening***
 
 **Author:** Marius Tuyishime
@@ -46,6 +45,8 @@ Thecomputed thresholds, concentration in ppm :
 
 **Combined prioritization:** Priority 1 = both As and U in top 5%; Priority 2 = either As or U in top 5%; Background = neither.
 
+**Regulatory guideline values (Naturvårdsverket):** for arsenic, generic guideline values for contaminated land are 10 mg/kg TS (KM, for sensitive land use, e.g. homes/schools/gardens) and 25 mg/kg TS (MKM for less sensitive land use, e.g. offices/industry). Notably, the KM value corresponds to the 90th percentile of SGU's regional measurements. The arsenic dataset 95th percentile (13.00 ppm) sits between KM and MKM.
+
 ---
 
 ## 3. Results
@@ -67,7 +68,12 @@ Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 
 ![Combined Priority Map](results/sweden_as_u_priority_map.png)
 
-**Point counts per class:**
+**Figure 4 — Arsenic vs. Naturvårdsverket guideline values (KM/MKM)**
+Points classified against Sweden's legal contaminated-land guideline values rather than relative percentiles.
+
+![Arsenic Guideline Screening Map](results/arsenic_guideline_screening_map.png)
+
+**Point counts per class (relative percentile screening, n=27,981):**
 
 | Class | Count | % of total (n=27,981) |
 |---|---|---|
@@ -76,6 +82,14 @@ Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 | Priority 1 (both hot) | 137 | 0.49% |
 | Priority 2 (either hot) | 2,490 | 8.90% |
 | Background | 25,354 | 90.61% |
+
+**Point counts per class (Arsenic vs. Naturvårdsverket guideline values, n=27,981):**
+
+| Class | Count | % of total |
+|---|---|---|
+| Below KM (<10 ppm) | 25,862 | 92.42% |
+| KM–MKM (10–25 ppm) | 1,752 | 6.26% |
+| Above MKM (>25 ppm) | 367 | 1.31% |
 
 ---
 
@@ -87,6 +101,8 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 **Priority 2** points indicate that only one of the two elements is relatively elevated. These should not automatically be treated as risk areas but can support further prioritization depending on local context.
 
+**Comparison against regulatory guideline values:** notably, 7.6% of sample points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value of 10 ppm for arsenic — more than the 5% that the relative "top 5%" screening threshold alone would suggest, since KM (10 ppm) is a lower bar than this dataset's own 95th percentile (13.00 ppm). This shows that more of the dataset exceeds the legal "sensitive land use" guideline than the relative screening method alone would indicate — an important finding when moving from relative screening toward regulatory-relevant assessment.
+
 **Important:** this is a **screening tool, not a risk map**. It does not incorporate regulatory guideline values, bioavailability, land use, or exposure pathways.
 
 ---
@@ -95,6 +111,7 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 - Classification is based on total/leachable concentrations, not bioavailability or chemical speciation.
 - Relative percentiles show anomalies **within this dataset**, not regulatory exceedances.
+- No equivalent Naturvårdsverket generic guideline value was identified for uranium in soil; Swedish uranium regulation tends to focus on drinking water and radiological guidance rather than a general soil contamination limit.
 - Local land use, exposure pathways, and receptor information are not included in this version.
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the prioritization model.
 - The `> 0` filter excludes both "not analyzed" placeholders (0) and below-detection-limit values (stored as negative numbers) — slightly narrowing the effective dataset compared to a method that treats below-detection values as left-censored data.
@@ -106,7 +123,7 @@ Results show clear geographic patterns in the highest As and U concentrations, w
 
 To move this analysis from geochemical screening toward more risk-informed prioritization:
 
-1. **Compare against relevant guideline values** — clearly separate relative percentile thresholds from guideline-based assessment.
+1. **Compare against relevant guideline values** — done for arsenic in this version (Figure 4); still needed for uranium via an alternative regulatory framework (e.g. drinking water or radiological guidance).
 2. **Add land use or receptor information** — a simple exposure proxy such as residential areas, agricultural land, drinking water interests, or proximity to private wells.
 3. **Medium-specific analysis** — keep soil/till, sediment, surface water, and groundwater separate, since risk logic differs by medium.
 4. **Geochemical mobility** — use support variables (Fe, Al, Ca, pH) to interpret binding, mobility, and potential transport.
