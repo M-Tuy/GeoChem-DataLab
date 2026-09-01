@@ -20,7 +20,7 @@ Later stages of the project will narrow the scope to a smaller geographical regi
 ## 2. Data & Method
 
 **Data source:**
-- Product: Markgeokemi, regional provtagning (SGU)
+- Product: [Markgeokemi](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU)
 - Layer: `moran_0063mm_hno3_icpms`
 - Medium: Till (moraine), fine fraction <0.063 mm
 - Method: HNO₃ leach / ICP-MS
