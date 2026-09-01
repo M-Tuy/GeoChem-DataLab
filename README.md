@@ -1,4 +1,4 @@
-# GeoScreen SE: Arsenic & Uranium Geochemical Screening
+# GeoScreen SE: Arsenic and Uranium Geochemical Screening
 
 **Author:** Marius Tuyishime
 **Status:** Pågående, preliminära resultat
@@ -17,7 +17,7 @@ Later stages of the project will narrow the scope to a smaller geographical regi
 
 ---
 
-## 2. Data & Method
+## 2. Data and Method
 
 **Data source:**
 - Product: [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU)
