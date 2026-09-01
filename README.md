@@ -1,4 +1,4 @@
-# GeoScreen SE: Arsenic and Uranium Geochemical Screening
+# GeoScreen_SE: Arsenic and Uranium Geochemical Screening
 
 **Author:** Marius Tuyishime
 **Status:** Pågående, preliminära resultat
@@ -58,6 +58,7 @@ Thecomputed thresholds, concentration in ppm :
 ## 3. Results
 
 **Figure 1: Arsenic screening**
+
 As hotspots (top 5%, red) among all cleaned sample points.
 
 **Arsenic**
@@ -65,21 +66,25 @@ As hotspots (top 5%, red) among all cleaned sample points.
 ![Arsenic Screening Map](results/arsenic_screening_map.png)
 
 **Figure 2: Uranium screening**
+
 U hotspots (top 5%, blue) among all cleaned sample points.
 
 ![Uranium Screening Map](results/uranium_screening_map.png)
 
 **Figure 3: Combined As + U priority**
+
 Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
 
 ![Combined Priority Map](results/sweden_as_u_priority_map.png)
 
 **Figure 4: Arsenic vs. Naturvårdsverket guideline values (KM/MKM)**
+
 Points classified against Sweden's legal contaminated-land guideline values rather than relative percentiles.
 
 ![Arsenic Guideline Screening Map](results/arsenic_guideline_screening_map.png)
 
 **Figure 5: Combined As + U priority with alum shale (Alunskiffer) overlay**
+
 Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set, together with mapped alum shale bedrock polygons (black, n=123) from SGU's national bedrock geology dataset.
 
 ![Alum Shale Priority Overlay](results/alum_shale_priority_overlay.png)
