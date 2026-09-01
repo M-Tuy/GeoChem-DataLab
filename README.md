@@ -148,13 +148,13 @@ As the project matures, the plan is to expand both the **data** and the **modeli
 **Toward machine learning:**
 During development, early experiments were done with **k-nearest neighbors (KNN) regression**, testing whether Ca concentration could help predict U concentration at unsampled points. Two versions were tried:
 - A manual "by hand" KNN implementation (k=1), to understand the mechanics of nearest-neighbor prediction.
-- A `scikit-learn`-based KNN regression sweeping k from 1 to 70, to observe the classic bias-variance tradeoff (low k = overfit/noisy, high k = oversmoothed).
+- A `scikit-learn`, based KNN regression sweeping k from 1 to 70, to observe the classic bias-variance tradeoff (low k = overfit/noisy, high k = oversmoothed).
 
-These experiments were **exploratory and kept separate from the current screening pipeline** — they answer a different question (can one variable predict another?) than the percentile method (which points are relatively elevated?). They are, however, a useful proof of concept for where this project is heading:
+These experiments were **exploratory and kept separate from the current screening pipeline**, they answer a different question (can one variable predict another?) than the percentile method (which points are relatively elevated?). They are, however, a useful proof of concept for where this project is heading:
 
-- **Spatial interpolation** (e.g. kriging, IDW, or KNN-based prediction) to move from discrete sample points toward continuous surfaces — directly addressing the "points vs. areas" limitation noted by early reviewers of this report.
+- **Spatial interpolation** (e.g. kriging, IDW, or KNN-based prediction) to move from discrete sample points toward continuous surfaces, directly addressing the "points vs. areas" limitation noted by early reviewers of this report.
 - **Regression/classification models** using Fe, Ca, Al, pH, and other geochemical variables as predictors, to model *mobility and likely bioavailability* rather than relying on raw concentration alone.
 - **Train/test validation** (as already practiced in the KNN experiments) to properly evaluate any future predictive model, rather than relying solely on descriptive percentile statistics.
 - Eventually, a **risk-informed prioritization model** that combines geochemical prediction, land use, and exposure pathways — the natural endpoint hinted at in Section 6.
 
-The percentile screening method in this report remains the **baseline and reference point**: any future ML-based model should be validated against it, and should improve on — not obscure — its transparency and reproducibility.
+The percentile screening method in this report remains the **baseline and reference point**: any future ML-based model should be validated against it, and should improve on, not obscure, its transparency and reproducibility.
