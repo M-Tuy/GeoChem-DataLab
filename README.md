@@ -153,14 +153,11 @@ To move this analysis from geochemical screening toward risk-informed prioritiza
 6. **Distribution-aware thresholds**: consider log-transformation before percentile calculation, given the typically right-skewed nature of geochemical data.
 7. **Transparent uncertainty reporting**: document data coverage, analytical method, sample medium, spatial resolution, and limitations in future versions.
 8. **Quantify the alum shale association**: run a distance-based spatial join, buffering shale polygons and computing nearest-distance for each priority point, to test whether the clustering in Figure 5 is stronger than expected by chance.
-
 ---
 
-## 7. Way Forward: Toward a Machine Learning-Based Model
+## 7. Way Forward: toward a Machine Learning-based model
 
-The current version of GeoScreen SE is intentionally simple. It is a transparent, percentile-based screening method that anyone can follow and reproduce without a statistical background. This is a deliberate first step, not a final product.
-
-As the project matures, the plan is to expand both the data and the modeling approach.
+The current version of GeoScreen_SE is intentionally simple. It is a percentile-based screening method. As the project matures, the plan is to expand both the data and the modeling approach.
 
 **More data:**
 - Incorporate additional SGU layers already in the delivery (e.g. `moran_2mm_hno3_icpms`, sediment and surface soil tables) to compare As/U behavior across sample media.
@@ -168,17 +165,14 @@ As the project matures, the plan is to expand both the data and the modeling app
 - Add external layers such as bedrock geology, land use, or proximity to drinking water sources, to move from pure geochemistry toward exposure-relevant context.
 
 **Toward machine learning:**
-Early experiments used k-nearest neighbors (KNN) regression to test whether Ca concentration could help predict U concentration at unsampled points. Two versions were tried: a manual "by hand" implementation (k=1) to understand the mechanics of nearest-neighbor prediction, and a `scikit-learn` version sweeping k from 1 to 70 to observe the bias-variance tradeoff.
+K-nearest neighbors (KNN) regression will be used to test whether Ca concentration can help predict U concentration at unsampled points. Two versions will be tried: a manual "by hand" implementation (k=1) to understand the mechanics of nearest-neighbor prediction, and a `scikit-learn` version sweeping k from 1 to 70 to observe the bias-variance tradeoff.
 
-These experiments were exploratory and kept separate from the current screening pipeline. They answer a different question, whether one variable can predict another, than the percentile method, which asks which points are relatively elevated. They are a useful proof of concept for where this project is heading:
+These experiments will be exploratory and kept separate from the current screening pipeline. They answer a different question, whether one variable can predict another, than the percentile method, which asks which points are relatively elevated. They will serve as a proof of concept for where this project is heading:
 
 - **Spatial interpolation** (kriging, IDW, or KNN-based prediction) to move from discrete points toward continuous surfaces.
 - **Regression/classification models** using Fe, Ca, Al, and pH as predictors, to model mobility and likely bioavailability rather than relying on raw concentration alone.
-- **Train/test validation**, as already practiced in the KNN experiments, to properly evaluate future predictive models.
+- **Train/test validation**, following the same approach as the planned KNN experiments, to properly evaluate future predictive models.
 - Eventually, a **risk-informed prioritization model** combining geochemical prediction, land use, and exposure pathways.
-
-The percentile screening method in this report remains the baseline and reference point. Any future ML-based model should be validated against it, and should improve on, not obscure, its transparency and reproducibility.
-
 ---
 
 ## 8. References
