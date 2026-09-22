@@ -1,8 +1,6 @@
 # GeoScreen- Arsenic and Uranium Geochemical Screening
 
-- **Author:** Marius Tuyishime
-- **Data source:** SGU Markgeokemi
-- **Status:** Pågående
+**Author:** Marius Tuyishime.**Data source:** SGU Markgeokemi.**Status:** Pågående
 
 ---
 
