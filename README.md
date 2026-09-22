@@ -1,8 +1,8 @@
-# GeoScreen_SE: Arsenic and Uranium Geochemical Screening
+# GeoScreen- Arsenic and Uranium Geochemical Screening
 
-**Author:** Marius Tuyishime
-**Status:** Pågående, preliminära resultat
-**Data source:** SGU Markgeokemi, regional provtagning (layer: `moran_0063mm_hno3_icpms`)
+- **Author:** Marius Tuyishime
+- **Data source:** SGU Markgeokemi
+- **Status:** Pågående
 
 ---
 
@@ -13,8 +13,6 @@ Arsenic (As) and uranium (U) occur naturally in bedrock and soils. Elevated conc
 This project builds a simple screening method to identify sample points with relatively high As and U concentrations in Swedish till soils, using SGU's regional soil geochemistry data. It flags candidate areas for further investigation, especially where As and U are both elevated at the same point. This is a first step.
 
 Future versions will add sediment, surface soil, pH, land use, and bedrock geology, and move toward spatial interpolation and machine learning, shifting from identifying relative highs to predicting risk. Later stages will narrow the scope to a smaller region for more detailed, site-specific analysis.
-
----
 
 ## 2. Data and Method
 
