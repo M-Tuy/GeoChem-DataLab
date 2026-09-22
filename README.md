@@ -1,6 +1,6 @@
 # GeoScreen- Arsenic and Uranium Geochemical Screening
 
-**Author:** Marius Tuyishime. **Data:** SGU Markgeokemi. **Status:** Pågående.
+**Author:** Marius Tuyishime. **Data:** SGU Markgeokemi. **Status:** pågående.
 
 ---
 
@@ -8,17 +8,17 @@
 
 Arsenic (As) and uranium (U) occur naturally in bedrock and soils. Elevated concentrations can be environmentally relevant, depending on concentration, medium, land use, mobility, and exposure pathways.
 
-This project builds a simple screening method to identify sample points with relatively high As and U concentrations in Swedish till soils, using SGU's regional soil geochemistry data. It flags candidate areas for further investigation, especially where As and U are both elevated at the same point. This is a first step.
+This mini-project builds a simple screening method to identify sample points with relatively high As and U concentrations in Swedish till soils, using SGU's regional soil geochemistry data. Candidate areas are identified for further investigation, especially where As and U are both elevated at the same point. This is a first step.
 
-Future versions will add sediment, surface soil, pH, land use, and bedrock geology, and move toward spatial interpolation and machine learning, shifting from identifying relative highs to predicting risk. Later stages will narrow the scope to a smaller region for more detailed, site-specific analysis.
+Beyong this initial step, future development will add more input data, e.g., sediment, surface soil, pH, land use, and bedrock geology. The project will then move toward spatial interpolation and machine learning. The project will then move toward spatial interpolation and machine learning. The aim is to move from identifying relative geochemical highs to predicting areas of potential risk. Later stages will focus on more detailed, site-specific analysis.
 
 ## 2. Data and Method
 
 **Data source:**
 
-- Data: [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU); layer: `moran_0063mm_hno3_icpms`
+- **Product:** [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU); layer: `moran_0063mm_hno3_icpms`
 - Material: Till (moraine), fine fraction <0.063 mm
-- Method: $HNO_3$ leach / ICP-MS
+- Method: HNO$_3$ leaching / ICP-MS
 - CRS: SWEREF99 TM (EPSG:3006)
 
 **Cleaning steps:**
@@ -27,53 +27,49 @@ Future versions will add sediment, surface soil, pH, land use, and bedrock geolo
 2. Confirmed CRS as EPSG:3006.
 3. Filtered to rows with valid, positive values for As, Fe, Ca, Al, and U. Excluded SGU's "0 = not analyzed" placeholder and below-detection-limit values (stored as negative numbers, per SGU documentation).
 
-**Output:** 27,981 analysis-ready sample points (original Swedish dataset: 28,471 points).
+**Output** 
 
-**Percentile-based thresholds:**
+**27 981** analysis-ready sample points (original dataset: 28 471 points). The computed percentile-based thresholds: 75th percentile (P75) → **elevated** and 95th percentile (P95) → **high or hotspots**.
 
-- 75th percentile → "elevated"
-- 95th percentile → "high" / hotspot
-
-The computed thresholds, in ppm:
-
-| Element | 75th percentile | 95th percentile |
-|---|---|---|
+| Element | P75 | P95 |
+|---|---:|---:|
 | As | 3.90 | 13.00 |
 | U | 2.40 | 4.60 |
-**Table 1**: Combined prioritization; Priority 1 = both As and U in top 5%. Priority 2 = either As or U in top 5%. Background = neither.
 
-**Regulatory guideline values (Naturvårdsverket):** for arsenic, generic guideline values for contaminated land are 10 mg/kg TS (KM, sensitive land use, e.g. homes/schools/gardens) and 25 mg/kg TS (MKM, less sensitive land use, e.g. offices/industry). The KM value corresponds to the 90th percentile of SGU's regional measurements. The dataset's 95th percentile for As (13.00 ppm) sits between KM and MKM.
+**Table 1.** Percentile-based thresholds for arsenic (As) and uranium (U).
+
+
+**Regulatory guideline values (Naturvårdsverket):** for As, generic guideline values for contaminated land are 10 mg/kg TS (KM, sensitive land use, e.g. homes, schools, and gardens) and 25 mg/kg TS (MKM, less sensitive land use, e.g. offices and industry). The computed 90 percentile  for As (8.4 ppm) of the SGU's regional data falls slightly below the KM value but the P95 (13.00 ppm) sits between KM and MKM.
 
 **Supplementary geological layer, alum shale (Alunskiffer):**
 
-- Product: [Berggrund 1:50 000-1:250 000](https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/) (SGU bedrock geology)
-- Direct bulk download (GeoPackage, CC0 license): [berggrund50k-250k.zip](https://resource.sgu.se/data/oppnadata/berggrund50k-250k/berggrund50k-250k.zip)
-- Alum shale polygons (n = 123) were extracted from this layer, reprojected to EPSG:3006, and overlaid on the Priority 1/Priority 2 results (see Figure 5).
+**Product:** [Berggrund 1:50 000–1:250 000](https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/) (SGU bedrock geology). The GeoPackage was downloaded from SGU: [berggrund50k-250k.zip](https://resource.sgu.se/data/oppnadata/berggrund50k-250k/berggrund50k-250k.zip). Alum shale polygons (n = 123) were extracted, reprojected to EPSG:3006, and overlaid with the Priority 1 and Priority 2 results (see Figure 5).
 
 ## 3. Results
 
-As hotspots (top 5%, red) among all cleaned sample points.
+As hotspots (top 5%, red) among all cleaned sample points (Fig. 1).
 
-![Arsenic screening map](results/arsenic_screening_map.png){ width=70% }
+![Arsenic screening map](results/arsenic_screening_map.png)
 
-U hotspots (top 5%, blue) among all cleaned sample points.
+U hotspots (top 5%, blue) among all cleaned sample points (Fig. 2).
 
-![Uranium screening map](results/uranium_screening_map.png){ width=70% }
+![Uranium screening map](results/uranium_screening_map.png)
 
-Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
+Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set (Fig. 3).
 
-![Combined priority map for As and U](results/sweden_as_u_priority_map.png){ width=70% }
+![Combined priority map for As and U](results/sweden_as_u_priority_map.png)
 
-Points classified against Sweden's legal contaminated-land guideline values.
+Points classified against Sweden's legal contaminated-land guideline values (Naturvårdsverket) (Fig .4).
 
-![Arsenic vs. Naturvårdsverket guideline values (KM/MKM)](results/arsenic_guideline_screening_map.png){ width=70% }
+![Arsenic vs. Naturvårdsverket guideline values (KM/MKM)](results/arsenic_guideline_screening_map.png)
 
-Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black, n=123).
+Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black, n=123) (Fig .5).
 
-![Combined As + U priority with alunskiffer overlay](results/alum_shale_priority_overlay.png){ width=70% }
+![Combined As + U priority with alunskiffer overlay](results/alum_shale_priority_overlay.png) 
 
-**Point counts per class (relative percentile screening, n=27,981):**
+**Point counts per class (relative percentile screening, n=27 981):**
 
+---
 | Class | Count | % of total |
 |---|---:|---:|
 | As hotspot (top 5%) | 1,394 | 4.98% |
@@ -82,13 +78,15 @@ Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black
 | Priority 2 (either hot) | 2,490 | 8.90% |
 | Background | 25,354 | 90.61% |
 
-**Point counts per class (Arsenic vs. Naturvårdsverket guideline values, n=27,981):**
+**Table 2**: Point counts per class (relative percentile screening, n=27 981)
 
 | Class | Count | % of total |
 |---|---:|---:|
-| Below KM (<10 ppm) | 25,862 | 92.42% |
-| KM-MKM (10-25 ppm) | 1,752 | 6.26% |
+| Below KM (<10 ppm) | 25 862 | 92.42% |
+| KM-MKM (10-25 ppm) | 1 752 | 6.26% |
 | Above MKM (>25 ppm) | 367 | 1.31% |
+
+**Table 3**: Point counts per class (As vs. Naturvårdsverket guideline values, n=27 981)
 
 ## 4. Interpretation
 
