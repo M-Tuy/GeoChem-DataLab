@@ -1,8 +1,6 @@
 # GeoScreen- Arsenic and Uranium Geochemical Screening
 
-**Author:** Marius Tuyishime.
-**Data:** SGU Markgeokemi.
-**Status:** Pågående.
+**Author:** Marius Tuyishime. **Data:** SGU Markgeokemi. **Status:** Pågående.
 
 ---
 
@@ -17,13 +15,14 @@ Future versions will add sediment, surface soil, pH, land use, and bedrock geolo
 ## 2. Data and Method
 
 **Data source:**
-- Product: [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU)
-- Layer: `moran_0063mm_hno3_icpms`
-- Medium: Till (moraine), fine fraction <0.063 mm
-- Method: HNO₃ leach / ICP-MS
+
+- Data: [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU); layer: `moran_0063mm_hno3_icpms`
+- Material: Till (moraine), fine fraction <0.063 mm
+- Method: $HNO_3$ leach / ICP-MS
 - CRS: SWEREF99 TM (EPSG:3006)
 
 **Cleaning steps:**
+
 1. Dropped rows missing sample ID, coordinates, or geometry.
 2. Confirmed CRS as EPSG:3006.
 3. Filtered to rows with valid, positive values for As, Fe, Ca, Al, and U. Excluded SGU's "0 = not analyzed" placeholder and below-detection-limit values (stored as negative numbers, per SGU documentation).
@@ -31,6 +30,7 @@ Future versions will add sediment, surface soil, pH, land use, and bedrock geolo
 **Output:** 27,981 analysis-ready sample points (original Swedish dataset: 28,471 points).
 
 **Percentile-based thresholds:**
+
 - 75th percentile → "elevated"
 - 95th percentile → "high" / hotspot
 
@@ -40,44 +40,42 @@ The computed thresholds, in ppm:
 |---|---|---|
 | As | 3.90 | 13.00 |
 | U | 2.40 | 4.60 |
-
-**Combined prioritization:** Priority 1 = both As and U in top 5%. Priority 2 = either As or U in top 5%. Background = neither.
+**Table 1**: Combined prioritization; Priority 1 = both As and U in top 5%. Priority 2 = either As or U in top 5%. Background = neither.
 
 **Regulatory guideline values (Naturvårdsverket):** for arsenic, generic guideline values for contaminated land are 10 mg/kg TS (KM, sensitive land use, e.g. homes/schools/gardens) and 25 mg/kg TS (MKM, less sensitive land use, e.g. offices/industry). The KM value corresponds to the 90th percentile of SGU's regional measurements. The dataset's 95th percentile for As (13.00 ppm) sits between KM and MKM.
 
 **Supplementary geological layer, alum shale (Alunskiffer):**
+
 - Product: [Berggrund 1:50 000-1:250 000](https://www.sgu.se/produkter-och-tjanster/geologiska-data/berggrund--geologiska-data/berggrund/) (SGU bedrock geology)
 - Direct bulk download (GeoPackage, CC0 license): [berggrund50k-250k.zip](https://resource.sgu.se/data/oppnadata/berggrund50k-250k/berggrund50k-250k.zip)
 - Alum shale polygons (n = 123) were extracted from this layer, reprojected to EPSG:3006, and overlaid on the Priority 1/Priority 2 results (see Figure 5).
 
----
-
 ## 3. Results
 
-**Figure 1: Arsenic screening**
 As hotspots (top 5%, red) among all cleaned sample points.
-![Arsenic Screening Map](results/arsenic_screening_map.png)
 
-**Figure 2: Uranium screening**
+![Arsenic screening map](results/arsenic_screening_map.png){ width=70% }
+
 U hotspots (top 5%, blue) among all cleaned sample points.
-![Uranium Screening Map](results/uranium_screening_map.png)
 
-**Figure 3: Combined As + U priority**
+![Uranium screening map](results/uranium_screening_map.png){ width=70% }
+
 Priority 1 (red) and Priority 2 (orange) points overlaid on the full sample set.
-![Combined Priority Map](results/sweden_as_u_priority_map.png)
 
-**Figure 4: Arsenic vs. Naturvårdsverket guideline values (KM/MKM)**
+![Combined priority map for As and U](results/sweden_as_u_priority_map.png){ width=70% }
+
 Points classified against Sweden's legal contaminated-land guideline values.
-![Arsenic Guideline Screening Map](results/arsenic_guideline_screening_map.png)
 
-**Figure 5: Combined As + U priority with alum shale (Alunskiffer) overlay**
+![Arsenic vs. Naturvårdsverket guideline values (KM/MKM)](results/arsenic_guideline_screening_map.png){ width=70% }
+
 Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black, n=123).
-![Alum Shale Priority Overlay](results/alum_shale_priority_overlay.png)
+
+![Combined As + U priority with alunskiffer overlay](results/alum_shale_priority_overlay.png){ width=70% }
 
 **Point counts per class (relative percentile screening, n=27,981):**
 
 | Class | Count | % of total |
-|---|---|---|
+|---|---:|---:|
 | As hotspot (top 5%) | 1,394 | 4.98% |
 | U hotspot (top 5%) | 1,370 | 4.90% |
 | Priority 1 (both hot) | 137 | 0.49% |
@@ -87,12 +85,10 @@ Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black
 **Point counts per class (Arsenic vs. Naturvårdsverket guideline values, n=27,981):**
 
 | Class | Count | % of total |
-|---|---|---|
+|---|---:|---:|
 | Below KM (<10 ppm) | 25,862 | 92.42% |
 | KM-MKM (10-25 ppm) | 1,752 | 6.26% |
 | Above MKM (>25 ppm) | 367 | 1.31% |
-
----
 
 ## 4. Interpretation
 
@@ -110,8 +106,6 @@ Southern clusters (Skåne, Gotland) show little nearby shale in this dataset. Th
 
 This is a screening tool, not a risk map. It does not account for bioavailability, land use, or exposure pathways.
 
----
-
 ## 5. Limitations
 
 - Classification is based on total/leachable concentrations, not bioavailability or chemical speciation.
@@ -121,8 +115,6 @@ This is a screening tool, not a risk map. It does not account for bioavailabilit
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the model.
 - The `> 0` filter excludes "not analyzed" placeholders and below-detection-limit values, slightly narrowing the dataset.
 - The alum shale overlay is untested. It does not account for glacial transport distance, ice-flow direction, or shale occurrences missing from this dataset.
-
----
 
 ## 6. Next Steps
 
@@ -134,7 +126,6 @@ This is a screening tool, not a risk map. It does not account for bioavailabilit
 6. Consider log-transformation before percentile calculation, given the right-skewed nature of geochemical data.
 7. Document data coverage, analytical method, sample medium, and spatial resolution in future versions.
 8. Run a distance-based spatial join: compute nearest-distance to shale for each point, and compare Priority 1, Priority 2, and Background classes using a statistical test (e.g. Mann-Whitney U).
-
 ---
 
 ## 7. Way Forward: Toward a Machine Learning-Based Model
@@ -142,11 +133,13 @@ This is a screening tool, not a risk map. It does not account for bioavailabilit
 The current version is a percentile-based screening method. Planned extensions:
 
 **More data:**
+
 - Additional SGU layers (`moran_2mm_hno3_icpms`, sediment, surface soil) to compare As/U across sample media.
 - Additional geochemical variables: pH, S, rare earth elements.
 - External layers: bedrock geology, land use, drinking water proximity.
 
 **Toward machine learning:**
+
 KNN regression will test whether Ca concentration can help predict U concentration at unsampled points. Two versions are planned: a manual k=1 implementation, and a `scikit-learn` version sweeping k from 1 to 70 to observe the bias-variance tradeoff.
 
 This is exploratory work, separate from the current screening pipeline. It answers a different question (can one variable predict another) than the percentile method (which points are relatively elevated). Planned future steps:
@@ -155,8 +148,6 @@ This is exploratory work, separate from the current screening pipeline. It answe
 - Regression/classification using Fe, Ca, Al, pH as predictors of mobility.
 - Train/test validation for future predictive models.
 - A risk-informed prioritization model combining geochemical prediction, land use, and exposure pathways.
-
----
 
 ## 8. References
 
