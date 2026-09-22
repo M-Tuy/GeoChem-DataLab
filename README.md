@@ -69,14 +69,13 @@ Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black
 
 **Point counts per class (relative percentile screening, n=27 981):**
 
----
 | Class | Count | % of total |
 |---|---:|---:|
-| As hotspot (top 5%) | 1,394 | 4.98% |
-| U hotspot (top 5%) | 1,370 | 4.90% |
-| Priority 1 (both hot) | 137 | 0.49% |
-| Priority 2 (either hot) | 2,490 | 8.90% |
-| Background | 25,354 | 90.61% |
+| As hotspot (top 5%) | 1 394 | 4.98% |
+| U hotspot (top 5%) | 1 370 | 4.90% |
+| Priority 1 (both hotspots) | 137 | 0.49% |
+| Priority 2 (either hotspots) | 2 490 | 8.90% |
+| Background | 25 354 | 90.61% |
 
 **Table 2**: Point counts per class (relative percentile screening, n=27 981)
 
@@ -90,11 +89,11 @@ Priority 1 and Priority 2 points, with mapped alum shale bedrock polygons (black
 
 ## 4. Interpretation
 
-The screening shows clear geographic clustering of high As and U values, mainly in northern and parts of central Sweden. This method identifies points that are high relative to this dataset. It does not confirm regulatory exceedance on its own.
+The screening shows clear geographic clustering of high As and U values, mainly in northern and parts of central Sweden (Fig. 1 & 2). This method identifies points that are high relative to this dataset (Table 2). It does not confirm regulatory exceedance on its own.
 
-Priority 1 points (both As and U high) are the strongest signal, since two independent measurements agree. Priority 2 points (only one element high) are weaker and need more context before being treated as risk areas.
+Priority 1 points (both As and U high) are the strongest signal, since two independent measurements agree (Fig. 3). Priority 2 points (only one element high) are weaker and need more context before being treated as risk areas.
 
-**Guideline comparison:** 7.6% of points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value (10 ppm As). This is more than the 5% implied by the relative screening threshold, because KM sits below this dataset's own 95th percentile (13.00 ppm). Guideline-based screening identifies more points than percentile-based screening.
+**Guideline comparison:** 7.6% of points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value (10 ppm As) (Table 3). This is more than the 5% implied by the relative screening threshold, because KM sits below this dataset's own 95th percentile (13.00 ppm). Guideline-based screening identifies more points than percentile-based screening.
 
 **Alum shale overlay (Figure 5):** Priority 1 points in northern and central Sweden appear near mapped alum shale polygons on the map. Alum shale is known to carry elevated uranium and sulfide-hosted trace metals, including arsenic (Falk et al., 2006; Lecomte et al., 2017). Lecomte et al. (2017) also found that alum shale in northern Sweden underwent stronger metamorphism than in the south, which mobilized uranium into new minerals there. This gives a plausible geological reason for a north-south difference, but it has not been tested against this dataset.
 
