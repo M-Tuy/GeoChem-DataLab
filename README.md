@@ -16,7 +16,7 @@ Beyong this initial step, future development will add more input data, e.g., sed
 
 **Data source:**
 
-- **Product:** [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU); layer: `moran_0063mm_hno3_icpms`
+- Product: [markgeokemi-regional](https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/), regional provtagning (SGU); layer: `moran_0063mm_hno3_icpms`
 - Material: Till (moraine), fine fraction <0.063 mm
 - Method: HNO$_3$ leaching / ICP-MS
 - CRS: SWEREF99 TM (EPSG:3006)
@@ -99,57 +99,36 @@ Priority 1 points (both As and U high) are the strongest signal, since two indep
 
 This spatial pattern is a hypothesis, not a confirmed finding. Only 5 of 137 Priority 1 points (3.6%) fall inside a mapped shale polygon. This number alone does not confirm or rule out a real association, since no distance-based test or random baseline has been run. Section 6 lists this as a planned next step.
 
-Southern clusters (Skåne, Gotland) show little nearby shale in this dataset. The cause is not known.
-
-This is a screening tool, not a risk map. It does not account for bioavailability, land use, or exposure pathways.
+Southern clusters (Skåne, Gotland) show little nearby shale in this dataset. The cause of this pattern cannot be determined from the current analysis. Investigating the relationship between Priority 1 clusters and alum shale, is therefore identified as a topic for future analysis. Moreover, this is a screening tool, not a risk map. It does not account for bioavailability, land use, or exposure pathways.
 
 ## 5. Limitations
 
 - Classification is based on total/leachable concentrations, not bioavailability or chemical speciation.
 - Relative percentiles show anomalies within this dataset, not regulatory exceedances.
-- No Naturvårdsverket generic guideline value exists for uranium in soil.
+- No Naturvårdsverket generic guideline value exists for uranium to assess contaminated in soil as it is for arsenic.
 - Local land use, exposure pathways, and receptor information are not included in this version.
 - Groundwater conditions, pH, redox environment, and carbonate chemistry are not part of the model.
-- The `> 0` filter excludes "not analyzed" placeholders and below-detection-limit values, slightly narrowing the dataset.
 - The alum shale overlay is untested. It does not account for glacial transport distance, ice-flow direction, or shale occurrences missing from this dataset.
 
 ## 6. Next Steps
 
-1. Compare against relevant guideline values for uranium (drinking water or radiological guidance).
-2. Add land use or receptor information: residential areas, agricultural land, drinking water interests, private wells.
-3. Keep soil/till, sediment, surface water, and groundwater separate, since risk logic differs by medium.
-4. Use Fe, Al, Ca, pH to interpret binding, mobility, and transport.
-5. Test county-level thresholds instead of one national threshold, to account for natural geological background.
-6. Consider log-transformation before percentile calculation, given the right-skewed nature of geochemical data.
-7. Document data coverage, analytical method, sample medium, and spatial resolution in future versions.
-8. Run a distance-based spatial join: compute nearest-distance to shale for each point, and compare Priority 1, Priority 2, and Background classes using a statistical test (e.g. Mann-Whitney U).
----
+1. Test the relationship between Priority 1 points and alum shale using nearest-distance analysis and an appropriate statistical comparison.
+2. Assess spatial clustering of As and U hotspots while considering sampling density.
+3. Add relevant geological and geochemical variables, including Fe, Al, Ca, pH, and bedrock geology, to investigate patterns in elevated As and U.
+4. Compare additional SGU sample media where appropriate, while keeping till, sediment, and surface soil separate.
+5. Explore simple spatial prediction methods such as KNN, using spatially appropriate validation.
+6. Document data coverage, analytical methods, detection limits, and processing steps to ensure reproducibility.
 
-## 7. Way Forward: Toward a Machine Learning-Based Model
+## 7. Future Development
 
-The current version is a percentile-based screening method. Planned extensions:
+The current method is a percentile-based screening approach for identifying relative As and U anomalies. It does not predict concentrations or environmental risk.
 
-**More data:**
+Future work will focus on combining the geochemical results with geological, spatial, and additional environmental data. Simple predictive methods, including KNN regression, may be tested as an exploratory step to evaluate whether additional variables improve prediction of As or U concentrations.
 
-- Additional SGU layers (`moran_2mm_hno3_icpms`, sediment, surface soil) to compare As/U across sample media.
-- Additional geochemical variables: pH, S, rare earth elements.
-- External layers: bedrock geology, land use, drinking water proximity.
-
-**Toward machine learning:**
-
-KNN regression will test whether Ca concentration can help predict U concentration at unsampled points. Two versions are planned: a manual k=1 implementation, and a `scikit-learn` version sweeping k from 1 to 70 to observe the bias-variance tradeoff.
-
-This is exploratory work, separate from the current screening pipeline. It answers a different question (can one variable predict another) than the percentile method (which points are relatively elevated). Planned future steps:
-
-- Spatial interpolation (kriging, IDW, or KNN) to move from points to continuous surfaces.
-- Regression/classification using Fe, Ca, Al, pH as predictors of mobility.
-- Train/test validation for future predictive models.
-- A risk-informed prioritization model combining geochemical prediction, land use, and exposure pathways.
+If useful, later versions can develop spatial interpolation and predictive models using geological and geochemical variables. Any risk-oriented screening would require additional information on land use, exposure pathways, and site-specific conditions.
 
 ## 8. References
 
-- Andersson, A., Dahlman, B., Gee, D.G., Snäll, S. (1985). *The Scandinavian Alum Shales.* Sveriges Geologiska Undersökning, Ca 56.
-- Falk, H., Lavergren, U., Bergbäck, B. (2006). Metal mobility in alum shale from Öland, Sweden. *Journal of Geochemical Exploration*, 90(3), 157-165.
-- Lecomte, A., Cathelineau, M., Michels, R., Peiffert, C., Brouand, M. (2017). Uranium mineralization in the Alum Shale Formation (Sweden). *Ore Geology Reviews*, 88, 71-98.
-- Naturvårdsverket. *Riktvärden för förorenad mark, Rapport 5976.* https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/
-- SGU. *Markgeokemi, regional provtagning.* https://www.sgu.se/produkter-och-tjanster/geologiska-data/geokemi--geologiska-data/markgeokemi/
+- Lecomte, A., Cathelineau, M., Michels, R., Peiffert, C., Brouand, M. (2017). *Uranium mineralization in the Alum Shale Formation (Sweden).* **Ore Geology Reviews, 88**, 71–98.
+- Naturvårdsverket. *Riktvärden för förorenad mark.*
+- SGU. *Markgeokemi, regional provtagning.*
