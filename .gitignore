@@ -15,3 +15,6 @@ anaconda_projects/
 *.gpkg
 *.lyrx
 *.qlr
+
+GeoScreen_SGU_MariusT.pdf
+notebooks/

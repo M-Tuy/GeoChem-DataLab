@@ -10,7 +10,7 @@ Arsenic (As) and uranium (U) occur naturally in bedrock and soils. Elevated conc
 
 This mini-project builds a simple screening method to identify sample points with relatively high As and U concentrations in Swedish till soils, using SGU's regional soil geochemistry data. Candidate areas are identified for further investigation, especially where As and U are both elevated at the same point. This is a first step.
 
-Beyong this initial step, future development will add more input data, e.g., sediment, surface soil, pH, land use, and bedrock geology. The project will then move toward spatial interpolation and machine learning. The project will then move toward spatial interpolation and machine learning. The aim is to move from identifying relative geochemical highs to predicting areas of potential risk. Later stages will focus on more detailed, site-specific analysis.
+Beyon this initial step, future development will add more input data, e.g., sediment, surface soil, pH, land use, and bedrock geology. The project will then move toward spatial interpolation and machine learning. The project will then move toward spatial interpolation and machine learning. The aim is to move from identifying relative geochemical highs to predicting areas of potential risk. Later stages will focus on more detailed, site-specific analysis.
 
 ## 2. Data and Method
 
@@ -95,7 +95,7 @@ Priority 1 points (both As and U high) are the strongest signal, since two indep
 
 **Guideline comparison:** 7.6% of points (2,119 of 27,981) exceed the Naturvårdsverket KM guideline value (10 ppm As) (Table 3). This is more than the 5% implied by the relative screening threshold, because KM sits below this dataset's own 95th percentile (13.00 ppm). Guideline-based screening identifies more points than percentile-based screening.
 
-**Alum shale overlay (Figure 5):** Priority 1 points in northern and central Sweden appear near mapped alum shale polygons on the map. Alum shale is known to carry elevated uranium and sulfide-hosted trace metals, including arsenic (Falk et al., 2006; Lecomte et al., 2017). Lecomte et al. (2017) also found that alum shale in northern Sweden underwent stronger metamorphism than in the south, which mobilized uranium into new minerals there. This gives a plausible geological reason for a north-south difference, but it has not been tested against this dataset.
+**Alum shale overlay (Figure 5):** Priority 1 points in northern and central Sweden appear near mapped alum shale polygons on the map. Alum Shale is known to contain elevated uranium and trace metals (Lecomte et al., 2017), who also described that in northern Sweden, stronger Caledonian metamorphism resulted in redistribution of uranium into new U-bearing mineral phases. This gives a plausible geological reason for a north-south difference, but it has not been tested against this dataset.
 
 This spatial pattern is a hypothesis, not a confirmed finding. Only 5 of 137 Priority 1 points (3.6%) fall inside a mapped shale polygon. This number alone does not confirm or rule out a real association, since no distance-based test or random baseline has been run. Section 6 lists this as a planned next step.
 
